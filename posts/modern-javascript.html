@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with Modern JavaScript - Cromoteca</title>
+    <meta name="description" content="Essential concepts and best practices for modern JavaScript development, including ES6+ features and async programming.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-sm);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--color-gray-border);
+        }
+
+        .post-content h1 {
+            font-size: 2.5rem;
+            color: var(--color-gray-dark);
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+        }
+
+        .post-content h2 {
+            color: var(--color-green);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .post-content p {
+            line-height: 1.7;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text-primary);
+        }
+
+        .post-content code {
+            background: var(--color-gray-medium);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+        }
+
+        .post-content pre {
+            background: var(--color-gray-dark);
+            color: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            overflow-x: auto;
+            margin: var(--spacing-md) 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--color-green);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                <div class="brand">
+                    <h1 class="site-title">Cromoteca</h1>
+                    <p class="tagline">Software in Colors</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <article class="post-content">
+            <a href="../index.html" class="back-link">← Back to Blog</a>
+
+            <h1>Getting Started with Modern JavaScript</h1>
+
+            <div class="post-meta">
+                <div class="post-category green">
+                    <div class="category-dot green"></div>
+                    <span>Learning</span>
+                </div>
+                <time class="post-date">December 15, 2024</time>
+                <span class="post-read-time">5 min read</span>
+            </div>
+
+            <p>Modern JavaScript has evolved significantly since its early days. With ES6+ features, the language has become more powerful, expressive, and developer-friendly. This guide covers the essential concepts you need to know to write modern, efficient JavaScript code.</p>
+
+            <h2>Essential ES6+ Features</h2>
+
+            <p>Let's start with the most impactful features that every JavaScript developer should master:</p>
+
+            <h3>1. Arrow Functions</h3>
+            <p>Arrow functions provide a concise syntax and lexical <code>this</code> binding:</p>
+            <pre><code>// Traditional function
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+
+// With multiple statements
+const processData = (data) => {
+    const cleaned = data.filter(item => item != null);
+    return cleaned.map(item => item.toString());
+};</code></pre>
+
+            <h3>2. Destructuring Assignment</h3>
+            <p>Extract values from arrays and objects with ease:</p>
+            <pre><code>// Object destructuring
+const user = { name: 'John', age: 30, email: 'john@example.com' };
+const { name, email } = user;
+
+// Array destructuring
+const colors = ['red', 'green', 'blue'];
+const [primary, secondary] = colors;
+
+// With default values
+const { theme = 'light' } = user;</code></pre>
+
+            <h3>3. Template Literals</h3>
+            <p>Create dynamic strings with embedded expressions:</p>
+            <pre><code>const name = 'JavaScript';
+const version = 'ES2024';
+
+// Multi-line strings with interpolation
+const message = `
+    Welcome to ${name}!
+    You're learning ${version} features.
+    Current year: ${new Date().getFullYear()}
+`;
+
+// Tagged templates for advanced use cases
+const styled = (strings, ...values) => {
+    return strings.reduce((result, string, i) => {
+        return result + string + (values[i] || '');
+    }, '');
+};</code></pre>
+
+            <h2>Async Programming</h2>
+
+            <p>Modern JavaScript makes asynchronous programming much more manageable with Promises and async/await:</p>
+
+            <h3>Promises</h3>
+            <pre><code>// Creating a Promise
+const fetchUser = (id) => {
+    return new Promise((resolve, reject) => {
+        // Simulate API call
+        setTimeout(() => {
+            if (id > 0) {
+                resolve({ id, name: `User ${id}` });
+            } else {
+                reject(new Error('Invalid user ID'));
+            }
+        }, 1000);
+    });
+};
+
+// Using Promises
+fetchUser(1)
+    .then(user => console.log('User:', user))
+    .catch(error => console.error('Error:', error));</code></pre>
+
+            <h3>Async/Await</h3>
+            <pre><code>// Clean async function syntax
+const loadUserData = async (id) => {
+    try {
+        const user = await fetchUser(id);
+        const profile = await fetchProfile(user.id);
+        const preferences = await fetchPreferences(user.id);
+
+        return {
+            user,
+            profile,
+            preferences
+        };
+    } catch (error) {
+        console.error('Failed to load user data:', error);
+        throw error;
+    }
+};
+
+// Using the async function
+loadUserData(1)
+    .then(data => console.log('Loaded:', data))
+    .catch(error => console.error('Error:', error));</code></pre>
+
+            <h2>Modern Module System</h2>
+
+            <p>ES6 modules provide a clean way to organize code:</p>
+
+            <pre><code>// utils.js - Exporting utilities
+export const formatDate = (date) => {
+    return new Intl.DateTimeFormat('en-US').format(date);
+};
+
+export const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
+// Default export
+export default class Logger {
+    log(message) {
+        console.log(`[${new Date().toISOString()}] ${message}`);
+    }
+}
+
+// main.js - Importing modules
+import Logger, { formatDate, capitalize } from './utils.js';
+
+const logger = new Logger();
+logger.log(capitalize('application started'));
+console.log(formatDate(new Date()));</code></pre>
+
+            <h2>Best Practices</h2>
+
+            <p>Here are some key practices for writing maintainable modern JavaScript:</p>
+
+            <ul>
+                <li><strong>Use const by default:</strong> Only use <code>let</code> when you need to reassign variables</li>
+                <li><strong>Prefer arrow functions:</strong> Especially for short callbacks and when you need lexical <code>this</code></li>
+                <li><strong>Use async/await:</strong> It makes asynchronous code more readable than Promise chains</li>
+                <li><strong>Destructure when appropriate:</strong> It makes your code more concise and readable</li>
+                <li><strong>Use template literals:</strong> For any string that includes variables or spans multiple lines</li>
+            </ul>
+
+            <h2>Next Steps</h2>
+
+            <p>This guide covers the fundamentals, but there's much more to explore in modern JavaScript. Consider diving deeper into:</p>
+
+            <ul>
+                <li>Advanced array methods (map, filter, reduce, etc.)</li>
+                <li>Error handling strategies</li>
+                <li>Performance optimization techniques</li>
+                <li>Modern frameworks and libraries</li>
+                <li>TypeScript for type safety</li>
+            </ul>
+
+            <p>Happy coding! 🚀</p>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2025 Luciano Vernaschi. Software in Colors.</p>
+        </div>
+    </footer>
+</body>
+</html>
