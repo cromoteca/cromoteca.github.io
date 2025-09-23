@@ -6,8 +6,6 @@ date: "September 23, 2025"
 readTime: 8
 ---
 
-# RFC: Lightweight Java Code Generator and WebAssembly Toolkit Prototype
-
 ## Context
 
 Vaadin Flow and Hilla provide powerful ways to build modern web applications. Hilla, in particular, connects Java backend models with a React/TypeScript frontend through a TypeScript generator. This generator is the result of significant effort and has proven itself in production use. However, its architecture introduces complexity that makes it harder to extend quickly for new features.

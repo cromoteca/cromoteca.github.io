@@ -3,7 +3,7 @@ node_modules/
 npm-debug.log*
 
 # Generated/built files - HTML posts are generated from Markdown
-posts/
+/posts/
 
 # Build artifacts
 .npm
