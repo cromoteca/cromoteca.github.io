@@ -52,7 +52,7 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Cromoteca</title>
     <meta name="description" content="${description}">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../../styles.css">
     <style>
         .post-content {
             max-width: 800px;
@@ -191,7 +191,7 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <header class="header">
         <div class="container">
             <div class="logo-section">
-                <img src="../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                <img src="../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
                 <div class="brand">
                     <h1 class="site-title">Cromoteca</h1>
                     <p class="tagline">Software in Colors</p>
@@ -202,7 +202,7 @@ function getPostTemplate(frontmatter, content, colorClass) {
 
     <main class="main">
         <article class="post-content">
-            <a href="../index.html" class="back-link">← Back to Blog</a>
+            <a href="../../index.html" class="back-link">← Back to Blog</a>
 
             <h1>${title}</h1>
 
