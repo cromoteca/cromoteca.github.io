@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="180"
-   height="180"
+   width="145"
+   height="145"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
    version="1.0"
    sodipodi:docname="header-cromoteca.svg"
-   sodipodi:docbase="/home/luciano/Desktop/razor"
    inkscape:export-filename="/home/luciano/Desktop/razor/cromoteca.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs4">
     <linearGradient
@@ -123,7 +123,11 @@
        y2="-452.32379" />
     <filter
        inkscape:collect="always"
-       id="filter5678">
+       id="filter5678"
+       x="-0.073472039"
+       y="-0.073472039"
+       width="1.1469441"
+       height="1.1469441">
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="5.8165366"
@@ -132,44 +136,35 @@
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath5710">
-      <path
+      <circle
          transform="matrix(0.9368421,0,0,0.9210526,60.21053,5.5789474)"
-         d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-         sodipodi:ry="95"
-         sodipodi:rx="95"
-         sodipodi:cy="77"
-         sodipodi:cx="985"
          id="path5712"
-         style="opacity:0.90204085;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
-         sodipodi:type="arc" />
+         style="opacity:0.902041;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
+         cx="985"
+         cy="77"
+         r="95" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath5752">
-      <path
-         sodipodi:type="arc"
-         style="opacity:0.90204085;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
+      <circle
+         style="opacity:0.902041;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
          id="path5754"
-         sodipodi:cx="985"
-         sodipodi:cy="77"
-         sodipodi:rx="95"
-         sodipodi:ry="95"
-         d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-         transform="matrix(0.9368421,0,0,0.9210526,292.21053,2.57895)" />
+         transform="matrix(0.9368421,0,0,0.9210526,292.21053,2.57895)"
+         cx="985"
+         cy="77"
+         r="95" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath5777">
-      <path
+      <circle
          transform="matrix(0.9368421,0,0,0.9210526,459.71053,16.57895)"
-         d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-         sodipodi:ry="95"
-         sodipodi:rx="95"
-         sodipodi:cy="77"
-         sodipodi:cx="985"
          id="path5779"
-         style="opacity:0.90204085;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;display:inline"
-         sodipodi:type="arc" />
+         style="display:inline;opacity:0.902041;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
+         cx="985"
+         cy="77"
+         r="95" />
     </clipPath>
     <linearGradient
        inkscape:collect="always"
@@ -450,30 +445,24 @@
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath3313">
-      <path
-         sodipodi:type="arc"
-         style="opacity:0.90204085;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;display:inline"
+      <circle
+         style="display:inline;opacity:0.902041;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
          id="path3315"
-         sodipodi:cx="985"
-         sodipodi:cy="77"
-         sodipodi:rx="95"
-         sodipodi:ry="95"
-         d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-         transform="matrix(0.6246136,0,0,0.6140864,651.88953,17.898765)" />
+         transform="matrix(0.6246136,0,0,0.6140864,651.88953,17.898765)"
+         cx="985"
+         cy="77"
+         r="95" />
     </clipPath>
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath3317">
-      <path
-         sodipodi:type="arc"
-         style="opacity:0.90204085;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;display:inline"
+      <circle
+         style="display:inline;opacity:0.902041;fill:#ffd711;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1"
          id="path3319"
-         sodipodi:cx="985"
-         sodipodi:cy="77"
-         sodipodi:rx="95"
-         sodipodi:ry="95"
-         d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-         transform="matrix(0.9368421,0,0,0.9210526,459.71052,16.578949)" />
+         transform="matrix(0.9368421,0,0,0.9210526,459.71052,16.578949)"
+         cx="985"
+         cy="77"
+         r="95" />
     </clipPath>
     <linearGradient
        inkscape:collect="always"
@@ -723,20 +712,24 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="368.64555"
-     inkscape:cy="137.25"
+     inkscape:cx="368.5"
+     inkscape:cy="137.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer6"
      width="180px"
      height="180px"
      units="pt"
-     inkscape:window-width="937"
-     inkscape:window-height="713"
+     inkscape:window-width="1704"
+     inkscape:window-height="996"
      inkscape:window-x="0"
      inkscape:window-y="0"
      showguides="true"
      inkscape:guide-bbox="true"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -753,23 +746,20 @@
      id="layer6"
      inkscape:label="Simpson"
      style="display:inline">
-    <path
-       transform="matrix(0.6460289,0,0,0.6351408,-543.29313,44.944719)"
-       d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-       sodipodi:ry="95"
-       sodipodi:rx="95"
-       sodipodi:cy="77"
-       sodipodi:cx="985"
+    <circle
+       transform="matrix(0.6460289,0,0,0.6351408,-561.29313,26.944719)"
        id="path4623"
-       style="opacity:0.2857143;fill:#000000;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;display:inline;filter:url(#filter5678)"
-       sodipodi:type="arc"
+       style="display:inline;opacity:0.285714;fill:#000000;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;filter:url(#filter5678)"
        inkscape:export-filename="/home/luciano/Desktop/razor/simpsonized.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
-       clip-path="none" />
+       clip-path="none"
+       cx="985"
+       cy="77"
+       r="95" />
     <g
        id="g3321"
-       transform="translate(-1178,23)">
+       transform="translate(-1196,5)">
       <rect
          transform="matrix(0.6667224,0,0,0.6667224,345.39023,6.845208)"
          clip-path="url(#clipPath3317)"
@@ -778,22 +768,19 @@
          height="276"
          width="279"
          id="rect5737"
-         style="fill:#95a5b6;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1;display:inline" />
+         style="display:inline;fill:#95a5b6;fill-opacity:1;stroke:none;stroke-linejoin:bevel;stroke-opacity:1" />
     </g>
-    <path
-       transform="matrix(0.6246136,0,0,0.6140864,-526.11047,40.898765)"
-       d="M 1080 77 A 95 95 0 1 1  890,77 A 95 95 0 1 1  1080 77 z"
-       sodipodi:ry="95"
-       sodipodi:rx="95"
-       sodipodi:cy="77"
-       sodipodi:cx="985"
+    <ellipse
        id="path5762"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#084a82;stroke-linejoin:bevel;stroke-opacity:1;display:inline"
-       sodipodi:type="arc"
+       style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:#084a82;stroke-width:0.619328;stroke-linejoin:bevel;stroke-opacity:1"
        inkscape:export-filename="/home/luciano/Desktop/razor/simpsonized.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90"
-       clip-path="none" />
+       clip-path="none"
+       cx="71.133926"
+       cy="70.183418"
+       rx="59.338291"
+       ry="58.338207" />
     <g
        style="display:inline"
        id="g2276"
@@ -803,7 +790,7 @@
          id="g5841"
          style="display:inline">
         <rect
-           style="opacity:1;fill:url(#linearGradient3397);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
+           style="display:inline;opacity:1;fill:url(#linearGradient3397);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect5807"
            width="108"
            height="106"
@@ -815,8 +802,8 @@
            height="77.537033"
            width="79"
            id="rect5809"
-           style="opacity:1;fill:url(#linearGradient3399);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
-           transform="scale(-1,-1)" />
+           style="display:inline;opacity:1;fill:url(#linearGradient3399);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="scale(-1)" />
       </g>
       <g
          transform="translate(42,48)"
@@ -836,14 +823,14 @@
            width="79"
            id="rect5803"
            style="opacity:1;fill:url(#linearGradient3403);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           transform="scale(-1,-1)" />
+           transform="scale(-1)" />
       </g>
       <g
          transform="translate(-81,88)"
          id="g5837"
          style="display:inline">
         <rect
-           style="opacity:1;fill:url(#linearGradient3405);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
+           style="display:inline;opacity:1;fill:url(#linearGradient3405);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect5823"
            width="108"
            height="106"
@@ -855,20 +842,20 @@
            height="77.537033"
            width="79"
            id="rect5825"
-           style="opacity:1;fill:url(#linearGradient3407);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
-           transform="scale(-1,-1)" />
+           style="display:inline;opacity:1;fill:url(#linearGradient3407);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="scale(-1)" />
       </g>
     </g>
     <g
        style="display:inline"
        id="g2300"
-       transform="matrix(0.3458945,-0.2437265,0.2437265,0.3458945,-316.86807,363.32219)">
+       transform="matrix(0.3458945,-0.2437265,0.2437265,0.3458945,-334.86807,345.32219)">
       <g
          transform="translate(-12,78)"
          id="g2302"
          style="display:inline">
         <rect
-           style="opacity:1;fill:url(#linearGradient3409);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
+           style="display:inline;opacity:1;fill:url(#linearGradient3409);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect2304"
            width="108"
            height="106"
@@ -880,8 +867,8 @@
            height="77.537033"
            width="79"
            id="rect2306"
-           style="opacity:1;fill:url(#linearGradient3411);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
-           transform="scale(-1,-1)" />
+           style="display:inline;opacity:1;fill:url(#linearGradient3411);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="scale(-1)" />
       </g>
       <g
          transform="translate(42,48)"
@@ -901,14 +888,14 @@
            width="79"
            id="rect2312"
            style="opacity:1;fill:url(#linearGradient3415);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           transform="scale(-1,-1)" />
+           transform="scale(-1)" />
       </g>
       <g
          transform="translate(-81,88)"
          id="g2314"
          style="display:inline">
         <rect
-           style="opacity:1;fill:url(#linearGradient3417);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
+           style="display:inline;opacity:1;fill:url(#linearGradient3417);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect2316"
            width="108"
            height="106"
@@ -920,8 +907,8 @@
            height="77.537033"
            width="79"
            id="rect2318"
-           style="opacity:1;fill:url(#linearGradient3419);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;display:inline"
-           transform="scale(-1,-1)" />
+           style="display:inline;opacity:1;fill:url(#linearGradient3419);fill-opacity:1;stroke:none;stroke-width:4;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           transform="scale(-1)" />
       </g>
     </g>
   </g>
