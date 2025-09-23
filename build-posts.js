@@ -52,6 +52,8 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Cromoteca</title>
     <meta name="description" content="${description}">
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
     <link rel="stylesheet" href="../../styles.css">
     <style>
         .post-content {
