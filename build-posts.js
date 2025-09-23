@@ -191,11 +191,13 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <header class="header">
         <div class="container">
             <div class="logo-section">
-                <img src="../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
-                <div class="brand">
-                    <h1 class="site-title">Cromoteca</h1>
-                    <p class="tagline">Software in Colors</p>
-                </div>
+                <a href="../../index.html" class="logo-link">
+                    <img src="../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                    <div class="brand">
+                        <h1 class="site-title">Cromoteca</h1>
+                        <p class="tagline">Software in Colors</p>
+                    </div>
+                </a>
             </div>
         </div>
     </header>
@@ -221,7 +223,7 @@ function getPostTemplate(frontmatter, content, colorClass) {
 
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025 Luciano Vernaschi. Software in Colors.</p>
+            <p class="footer-text">&copy; 2025 Luciano Vernaschi.</p>
         </div>
     </footer>
 </body>
@@ -268,6 +270,89 @@ function processMarkdownFile(filePath) {
   }
 }
 
+// Generate homepage post blocks
+function generateHomepagePostBlocks(posts) {
+  // Filter out template files and sort posts by date (newest first)
+  const sortedPosts = posts
+    .filter(post => post.filename !== 'template')  // Exclude template
+    .sort((a, b) => {
+      const dateA = new Date(a.frontmatter.date);
+      const dateB = new Date(b.frontmatter.date);
+      return dateB - dateA; // Newest first
+    });
+
+  const categoryColors = {
+    learning: 'green',
+    technical: 'blue',
+    updates: 'red'
+  };
+
+  const categoryNames = {
+    learning: 'Learning',
+    technical: 'Technical',
+    updates: 'Updates'
+  };
+
+  return sortedPosts.map(post => {
+    const { title, description, category, date, readTime } = post.frontmatter;
+    const colorName = categoryColors[category] || 'blue';
+    const categoryName = categoryNames[category] || 'Technical';
+    const filename = post.filename;
+
+    return `                    <!-- ${categoryName} Post -->
+                    <article class="post-card ${category}" data-category="${category}">
+                        <div class="post-header">
+                            <div class="post-category ${colorName}">
+                                <div class="category-dot ${colorName}"></div>
+                                <span>${categoryName}</span>
+                            </div>
+                            <time class="post-date">${date}</time>
+                        </div>
+                        <h4 class="post-title">${title}</h4>
+                        <p class="post-excerpt">${description}</p>
+                        <div class="post-footer">
+                            <a href="dist/posts/${filename}.html" class="post-link ${colorName}-link">Read More</a>
+                            <span class="post-read-time">${readTime} min read</span>
+                        </div>
+                    </article>`;
+  }).join('\n\n');
+}
+
+// Update homepage with generated post blocks
+function updateHomepage(posts) {
+  const indexPath = 'index.html';
+
+  if (!fs.existsSync(indexPath)) {
+    console.error('❌ index.html not found');
+    return;
+  }
+
+  let indexContent = fs.readFileSync(indexPath, 'utf8');
+
+  // Find the posts grid section
+  const startMarker = '<div class="posts-grid">';
+  const endMarker = '</div>\n            </div>\n        </section>';
+
+  const startIndex = indexContent.indexOf(startMarker);
+  const endIndex = indexContent.indexOf(endMarker, startIndex);
+
+  if (startIndex === -1 || endIndex === -1) {
+    console.error('❌ Could not find posts grid section in index.html');
+    return;
+  }
+
+  // Generate new post blocks
+  const postBlocks = generateHomepagePostBlocks(posts);
+
+  // Replace the posts grid content
+  const newContent = indexContent.substring(0, startIndex + startMarker.length) +
+    '\n' + postBlocks + '\n                ' +
+    indexContent.substring(endIndex);
+
+  fs.writeFileSync(indexPath, newContent);
+  console.log('✅ Updated homepage with generated post blocks');
+}
+
 // Main build function
 function buildPosts() {
   const markdownDir = path.join('src', 'posts');
@@ -310,11 +395,16 @@ function buildPosts() {
   }
 
   console.log(`\n🎉 Successfully built ${processedPosts.length} posts!`);
+
+  // Update homepage with generated post blocks
+  if (processedPosts.length > 0) {
+    updateHomepage(processedPosts);
+  }
+
   console.log('\n📋 Next steps:');
-  console.log('1. Add the new posts to your index.html posts grid');
-  console.log('2. Update homepage links to use dist/posts/ paths');
-  console.log('3. Test your website locally');
-  console.log('4. Commit the changes (only src/ files, dist/ is ignored)');
+  console.log('1. Test your website locally');
+  console.log('2. Commit the changes (only src/ files, dist/ is ignored)');
+  console.log('\n✨ Posts automatically sorted by date (newest first) on homepage!');
 }
 
 // Check if dependencies are installed

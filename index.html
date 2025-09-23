@@ -11,11 +11,13 @@
     <header class="header">
         <div class="container">
             <div class="logo-section">
-                <img src="header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
-                <div class="brand">
-                    <h1 class="site-title">Cromoteca</h1>
-                    <p class="tagline">Software in Colors</p>
-                </div>
+                <a href="index.html" class="logo-link">
+                    <img src="header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                    <div class="brand">
+                        <h1 class="site-title">Cromoteca</h1>
+                        <p class="tagline">Software in Colors</p>
+                    </div>
+                </a>
             </div>
             <nav class="nav">
                 <a href="#" class="nav-link active">All Posts</a>
@@ -54,7 +56,7 @@
             <div class="container">
                 <h3 class="section-title">Recent Posts</h3>
                 <div class="posts-grid">
-                    <!-- Technical Post - RFC -->
+                    <!-- Technical Post -->
                     <article class="post-card technical" data-category="technical">
                         <div class="post-header">
                             <div class="post-category blue">
@@ -71,41 +73,7 @@
                         </div>
                     </article>
 
-                    <!-- Updates Post - Automation Test -->
-                    <article class="post-card updates" data-category="updates">
-                        <div class="post-header">
-                            <div class="post-category red">
-                                <div class="category-dot red"></div>
-                                <span>Updates</span>
-                            </div>
-                            <time class="post-date">December 23, 2024</time>
-                        </div>
-                        <h4 class="post-title">Testing Automated Deployment</h4>
-                        <p class="post-excerpt">A test post to verify that GitHub Actions automatically builds and deploys Markdown posts to the live site.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/test-automation.html" class="post-link red-link">Read More</a>
-                            <span class="post-read-time">2 min read</span>
-                        </div>
-                    </article>
-
-                    <!-- Technical Post - TypeScript -->
-                    <article class="post-card technical" data-category="technical">
-                        <div class="post-header">
-                            <div class="post-category blue">
-                                <div class="category-dot blue"></div>
-                                <span>Technical</span>
-                            </div>
-                            <time class="post-date">December 23, 2024</time>
-                        </div>
-                        <h4 class="post-title">Advanced TypeScript Patterns for Scalable Applications</h4>
-                        <p class="post-excerpt">Explore advanced TypeScript patterns including conditional types, mapped types, and utility types for building robust, type-safe applications.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/typescript-advanced-patterns.html" class="post-link blue-link">Read More</a>
-                            <span class="post-read-time">10 min read</span>
-                        </div>
-                    </article>
-
-                    <!-- Technical Post - Docker -->
+                    <!-- Technical Post -->
                     <article class="post-card technical" data-category="technical">
                         <div class="post-header">
                             <div class="post-category blue">
@@ -122,40 +90,6 @@
                         </div>
                     </article>
 
-                    <!-- Learning Post -->
-                    <article class="post-card learning" data-category="learning">
-                        <div class="post-header">
-                            <div class="post-category green">
-                                <div class="category-dot green"></div>
-                                <span>Learning</span>
-                            </div>
-                            <time class="post-date">December 15, 2024</time>
-                        </div>
-                        <h4 class="post-title">Getting Started with Modern JavaScript</h4>
-                        <p class="post-excerpt">Essential concepts and best practices for modern JavaScript development, including ES6+ features and async programming.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/modern-javascript.html" class="post-link green-link">Read More</a>
-                            <span class="post-read-time">5 min read</span>
-                        </div>
-                    </article>
-
-                    <!-- Technical Post -->
-                    <article class="post-card technical" data-category="technical">
-                        <div class="post-header">
-                            <div class="post-category blue">
-                                <div class="category-dot blue"></div>
-                                <span>Technical</span>
-                            </div>
-                            <time class="post-date">December 12, 2024</time>
-                        </div>
-                        <h4 class="post-title">Building Scalable REST APIs</h4>
-                        <p class="post-excerpt">Deep dive into API design patterns, authentication strategies, and performance optimization techniques for production systems.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/scalable-apis.html" class="post-link blue-link">Read More</a>
-                            <span class="post-read-time">8 min read</span>
-                        </div>
-                    </article>
-
                     <!-- Updates Post -->
                     <article class="post-card updates" data-category="updates">
                         <div class="post-header">
@@ -163,30 +97,13 @@
                                 <div class="category-dot red"></div>
                                 <span>Updates</span>
                             </div>
-                            <time class="post-date">December 10, 2024</time>
+                            <time class="post-date">December 23, 2024</time>
                         </div>
-                        <h4 class="post-title">Security Update: Node.js Vulnerabilities</h4>
-                        <p class="post-excerpt">Critical security patches in Node.js 18.x and 20.x. Action required for all production applications.</p>
+                        <h4 class="post-title">Testing Automated Deployment</h4>
+                        <p class="post-excerpt">A test post to verify that GitHub Actions automatically builds and deploys Markdown posts to the live site.</p>
                         <div class="post-footer">
-                            <a href="dist/posts/nodejs-security.html" class="post-link red-link">Read More</a>
-                            <span class="post-read-time">3 min read</span>
-                        </div>
-                    </article>
-
-                    <!-- Learning Post -->
-                    <article class="post-card learning" data-category="learning">
-                        <div class="post-header">
-                            <div class="post-category green">
-                                <div class="category-dot green"></div>
-                                <span>Learning</span>
-                            </div>
-                            <time class="post-date">December 8, 2024</time>
-                        </div>
-                        <h4 class="post-title">Understanding Docker Containers</h4>
-                        <p class="post-excerpt">A beginner-friendly guide to containerization concepts, Docker basics, and best practices for development workflows.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/docker-basics.html" class="post-link green-link">Read More</a>
-                            <span class="post-read-time">6 min read</span>
+                            <a href="dist/posts/test-automation.html" class="post-link red-link">Read More</a>
+                            <span class="post-read-time">2 min read</span>
                         </div>
                     </article>
 
@@ -197,30 +114,13 @@
                                 <div class="category-dot blue"></div>
                                 <span>Technical</span>
                             </div>
-                            <time class="post-date">December 5, 2024</time>
+                            <time class="post-date">December 23, 2024</time>
                         </div>
-                        <h4 class="post-title">Database Optimization Strategies</h4>
-                        <p class="post-excerpt">Advanced techniques for query optimization, indexing strategies, and performance monitoring in PostgreSQL and MongoDB.</p>
+                        <h4 class="post-title">Advanced TypeScript Patterns for Scalable Applications</h4>
+                        <p class="post-excerpt">Explore advanced TypeScript patterns including conditional types, mapped types, and utility types for building robust, type-safe applications.</p>
                         <div class="post-footer">
-                            <a href="dist/posts/database-optimization.html" class="post-link blue-link">Read More</a>
+                            <a href="dist/posts/typescript-advanced-patterns.html" class="post-link blue-link">Read More</a>
                             <span class="post-read-time">10 min read</span>
-                        </div>
-                    </article>
-
-                    <!-- Learning Post -->
-                    <article class="post-card learning" data-category="learning">
-                        <div class="post-header">
-                            <div class="post-category green">
-                                <div class="category-dot green"></div>
-                                <span>Learning</span>
-                            </div>
-                            <time class="post-date">December 3, 2024</time>
-                        </div>
-                        <h4 class="post-title">Git Workflow Best Practices</h4>
-                        <p class="post-excerpt">Master branching strategies, commit conventions, and collaborative workflows for efficient team development.</p>
-                        <div class="post-footer">
-                            <a href="dist/posts/git-workflows.html" class="post-link green-link">Read More</a>
-                            <span class="post-read-time">7 min read</span>
                         </div>
                     </article>
                 </div>
@@ -230,7 +130,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025 Luciano Vernaschi. Software in Colors.</p>
+            <p class="footer-text">&copy; 2025 Luciano Vernaschi.</p>
         </div>
     </footer>
 

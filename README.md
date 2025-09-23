@@ -120,4 +120,4 @@ After generating HTML from Markdown, add the post to your homepage:
 
 ---
 
-**© 2025 Luciano Vernaschi. Software in Colors.**
+**© 2025 Luciano Vernaschi.**
