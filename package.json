@@ -1,0 +1,23 @@
+{
+  "name": "cromoteca-blog",
+  "version": "1.0.0",
+  "description": "Cromoteca - Software in Colors blog",
+  "scripts": {
+    "build:posts": "node build-posts.js",
+    "dev": "python3 -m http.server 8000",
+    "preview": "npm run build:posts && npm run dev"
+  },
+  "dependencies": {
+    "marked": "^12.0.0",
+    "gray-matter": "^4.0.3"
+  },
+  "keywords": [
+    "blog",
+    "markdown",
+    "static-site",
+    "software",
+    "development"
+  ],
+  "author": "Luciano Vernaschi",
+  "license": "MIT"
+}
