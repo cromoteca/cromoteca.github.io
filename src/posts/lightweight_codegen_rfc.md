@@ -1,3 +1,11 @@
+---
+title: "RFC: Lightweight Java Code Generator and WebAssembly Toolkit Prototype"
+description: "Proposing a simplified Java-only code generator to accelerate feature development and support WebAssembly toolkit integration."
+category: "technical"
+date: "September 23, 2025"
+readTime: 8
+---
+
 # RFC: Lightweight Java Code Generator and WebAssembly Toolkit Prototype
 
 ## Context
