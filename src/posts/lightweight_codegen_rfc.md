@@ -46,7 +46,7 @@ This repository contains the **lightweight generator**.
 
 ### wasm-flow
 
-This repository contains a **proof-of-concept WebAssembly toolkit** that mirrors Hilla but for Java views.
+This repository contains a **proof-of-concept WebAssembly toolkit** that mirrors Hilla but for Java views, which [can look almost identical to Flow views](https://github.com/cromoteca/wasm-flow/blob/main/src/main/java/com/cromoteca/wasmcf/client/views/MainView.java).
 
 - Client views are written in Java and compiled to WebAssembly.
 - Server communication follows the same model as Hilla.
@@ -75,12 +75,6 @@ This repository contains a **proof-of-concept WebAssembly toolkit** that mirrors
 In addition to the examples already listed, the lightweight generator could support **AI-driven, real-time interface generation**. Beyond producing models, validators, or editors, it could generate dynamic field definitions and UI components tailored for assembly by large language models. With these building blocks in place, an LLM could efficiently construct dynamic frontends while consuming fewer tokens and less complexity.
 
 This approach aligns with Vaadin's broader exploration of AI-assisted development. Hilla developers could contribute by providing lightweight, well-defined components that make it easier for AI to assemble UIs on the fly. Furthermore, these components could include **Markdown-ready definitions**, making them usable both in traditional UIs and within conversational interfaces.
-
-## Next Steps
-
-- Collect community feedback on the lightweight generator approach.
-- Validate wasm-flow with more complex sample apps.
-- Identify integration points with Hilla to ensure both toolkits can leverage the same generator.
 
 ---
 
