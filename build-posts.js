@@ -252,7 +252,7 @@ function processMarkdownFile(filePath) {
 
     // Determine output filename
     const filename = path.basename(filePath, '.md');
-    const outputPath = path.join('dist', 'posts', `${filename}.html`);
+    const outputPath = path.join('posts', `${filename}.html`);
 
     // Write HTML file
     fs.writeFileSync(outputPath, fullHtml);
@@ -309,7 +309,7 @@ function generateHomepagePostBlocks(posts) {
                         <h4 class="post-title">${title}</h4>
                         <p class="post-excerpt">${description}</p>
                         <div class="post-footer">
-                            <a href="dist/posts/${filename}.html" class="post-link ${colorName}-link">Read More</a>
+                            <a href="posts/${filename}.html" class="post-link ${colorName}-link">Read More</a>
                             <span class="post-read-time">${readTime} min read</span>
                         </div>
                     </article>`;
@@ -354,7 +354,7 @@ function updateHomepage(posts) {
 // Main build function
 function buildPosts() {
   const markdownDir = path.join('src', 'posts');
-  const outputDir = path.join('dist', 'posts');
+  const outputDir = 'posts';
 
   // Check if source directory exists
   if (!fs.existsSync(markdownDir)) {

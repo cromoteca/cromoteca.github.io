@@ -2,8 +2,8 @@
 node_modules/
 npm-debug.log*
 
-# Generated/built files - everything in dist/ is generated
-dist/
+# Generated/built files - HTML posts are generated from Markdown
+posts/
 
 # Build artifacts
 .npm
