@@ -58,18 +58,57 @@ This document describes the specialized agents and automation used in the Cromot
 - **Blue (Français)**: Posts in French (`language: fr`)
 - **Green (Italiano)**: Posts in Italian (`language: it`)
 
-Browser language detection automatically shows posts in the user's preferred language.
+**Language Selection**:
+- Browser language detection automatically shows posts in the user's preferred language on first visit
+- User's language choice is persisted in localStorage and remembered across sessions
+- Only one language is shown at a time (no "all languages" view)
+- Language must be explicitly selected - enforced selection model
 
 ## Configuration
 
 Claude Code settings are stored in `.claude/settings.local.json`.
+
+## Development Workflow
+
+### File Structure
+- **Source files** (committed to git):
+  - `src/posts/*.md` - Markdown blog posts
+  - `src/index.template.html` - Homepage template
+  - `build-posts.js` - Build script
+  - `watch.js` - File watcher for development
+
+- **Generated files** (ignored by git):
+  - `index.html` - Generated from template
+  - `posts/en/`, `posts/fr/`, `posts/it/` - Generated HTML posts
+
+### Development Commands
+```bash
+# Build all posts and homepage
+npm run build:posts
+
+# Start development server
+npm run dev
+
+# Watch for changes and auto-rebuild (recommended)
+npm run dev:watch
+```
+
+### Watched Files
+The file watcher monitors:
+- `src/posts/**/*.md`
+- `src/index.template.html`
+- `build-posts.js`
+
+Changes trigger automatic rebuilds - just refresh your browser!
 
 ## Best Practices
 
 - Always use the Markdown workflow (`src/posts/*.md`)
 - Include `language` field in frontmatter (required: en, fr, or it)
 - Use `category` field for optional topic categorization
-- Run `npm run build:posts` before committing
+- Use `npm run dev:watch` during development for automatic rebuilds
+- Only commit source files in `src/` - never commit generated `index.html` or `posts/`
+- Run `npm run build:posts` before testing
 - Follow the color system for languages
 - Include complete frontmatter in all posts
 - Test locally before deployment
