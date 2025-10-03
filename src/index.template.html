@@ -22,7 +22,6 @@
                 </a>
             </div>
             <nav class="nav">
-                <a href="#" class="nav-link active">All Languages</a>
                 <a href="#" class="nav-link nav-red" data-language="en">English</a>
                 <a href="#" class="nav-link nav-blue" data-language="fr">Français</a>
                 <a href="#" class="nav-link nav-green" data-language="it">Italiano</a>
@@ -105,20 +104,16 @@
 
             function filterByLanguage(language) {
                 // Save preference to localStorage
-                if (language) {
-                    localStorage.setItem(STORAGE_KEY, language);
-                }
+                localStorage.setItem(STORAGE_KEY, language);
 
                 // Update active state on nav
                 navLinks.forEach(l => l.classList.remove('active'));
-                const activeLink = language ?
-                    document.querySelector(`[data-language="${language}"]`) :
-                    document.querySelector('.nav-link:first-child');
+                const activeLink = document.querySelector(`[data-language="${language}"]`);
                 if (activeLink) activeLink.classList.add('active');
 
-                // Show/hide posts
+                // Show/hide posts - always filter by language (no "show all" option)
                 posts.forEach(post => {
-                    if (!language || post.getAttribute('data-language') === language) {
+                    if (post.getAttribute('data-language') === language) {
                         post.style.display = 'flex';
                         post.style.animation = 'fadeIn 0.3s ease-in';
                     } else {

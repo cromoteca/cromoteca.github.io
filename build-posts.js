@@ -324,11 +324,10 @@ function generateHomepagePostBlocks(posts) {
     return `                    <!-- ${languageName} Post -->
                     <article class="post-card ${language}" data-language="${language}" ${category ? `data-category="${category}"` : ''}>
                         <div class="post-header">
-                            <div class="post-category ${colorName}">
+                            ${category ? `<div class="post-category ${colorName}">
                                 <div class="category-dot ${colorName}"></div>
-                                <span>${languageName}</span>
-                            </div>
-                            ${category ? `<span class="post-category-tag">${category}</span>` : ''}
+                                <span>${category}</span>
+                            </div>` : ''}
                             <time class="post-date">${date}</time>
                         </div>
                         <h4 class="post-title">${title}</h4>
