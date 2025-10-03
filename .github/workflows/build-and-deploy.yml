@@ -4,9 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'src/posts/**'
+      - 'src/**'
       - 'build-posts.js'
-      - 'index.html'
       - 'styles.css'
       - 'package.json'
   workflow_dispatch: # Allow manual triggering

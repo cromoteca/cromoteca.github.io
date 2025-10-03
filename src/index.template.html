@@ -22,10 +22,10 @@
                 </a>
             </div>
             <nav class="nav">
-                <a href="#" class="nav-link active">All Posts</a>
-                <a href="#" class="nav-link nav-green" data-category="learning">Learning</a>
-                <a href="#" class="nav-link nav-blue" data-category="technical">Technical</a>
-                <a href="#" class="nav-link nav-red" data-category="updates">Updates</a>
+                <a href="#" class="nav-link active">All Languages</a>
+                <a href="#" class="nav-link nav-red" data-language="en">English</a>
+                <a href="#" class="nav-link nav-blue" data-language="fr">Français</a>
+                <a href="#" class="nav-link nav-green" data-language="it">Italiano</a>
             </nav>
         </div>
     </header>
@@ -35,20 +35,20 @@
             <div class="container">
                 <h2 class="hero-title">Welcome to <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span></h2>
                 <p class="hero-description">
-                    A development blog where each post is color-coded by category. Choose your learning path through meaningful colors.
+                    A multilingual development blog where each post is color-coded by language. Read in your preferred language.
                 </p>
                 <div class="color-guide">
                     <div class="color-item">
-                        <div class="color-dot green"></div>
-                        <span>Learning & Growth</span>
+                        <div class="color-dot red"></div>
+                        <span>English</span>
                     </div>
                     <div class="color-item">
                         <div class="color-dot blue"></div>
-                        <span>Technical & Documentation</span>
+                        <span>Français</span>
                     </div>
                     <div class="color-item">
-                        <div class="color-dot red"></div>
-                        <span>Important & Updates</span>
+                        <div class="color-dot green"></div>
+                        <span>Italiano</span>
                     </div>
                 </div>
             </div>
@@ -58,22 +58,7 @@
             <div class="container">
                 <h3 class="section-title">Recent Posts</h3>
                 <div class="posts-grid">
-                    <!-- Technical Post -->
-                    <article class="post-card technical" data-category="technical">
-                        <div class="post-header">
-                            <div class="post-category blue">
-                                <div class="category-dot blue"></div>
-                                <span>Technical</span>
-                            </div>
-                            <time class="post-date">September 23, 2025</time>
-                        </div>
-                        <h4 class="post-title">RFC: Lightweight Java Code Generator and WebAssembly Toolkit Prototype</h4>
-                        <p class="post-excerpt">Proposing a simplified Java-only code generator to accelerate feature development and support WebAssembly toolkit integration.</p>
-                        <div class="post-footer">
-                            <a href="posts/lightweight_codegen_rfc.html" class="post-link blue-link">Read More</a>
-                            <span class="post-read-time">8 min read</span>
-                        </div>
-                    </article>
+                    <!-- Posts will be generated here by build-posts.js -->
                 </div>
             </div>
         </section>
@@ -86,33 +71,46 @@
     </footer>
 
     <script>
-        // Blog category filtering
+        // Blog language filtering and browser language detection
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const posts = document.querySelectorAll('.post-card');
 
+            // Detect browser language and filter on load
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0]; // Get 'en' from 'en-US'
+
+            // Valid languages we support
+            const validLangs = ['en', 'fr', 'it'];
+            const preferredLang = validLangs.includes(langCode) ? langCode : 'en';
+
+            // Filter posts by detected language on page load
+            filterByLanguage(preferredLang);
+
+            function filterByLanguage(language) {
+                // Update active state on nav
+                navLinks.forEach(l => l.classList.remove('active'));
+                const activeLink = language ?
+                    document.querySelector(`[data-language="${language}"]`) :
+                    document.querySelector('.nav-link:first-child');
+                if (activeLink) activeLink.classList.add('active');
+
+                // Show/hide posts
+                posts.forEach(post => {
+                    if (!language || post.getAttribute('data-language') === language) {
+                        post.style.display = 'flex';
+                        post.style.animation = 'fadeIn 0.3s ease-in';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            }
+
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-
-                    // Add active class to clicked link
-                    this.classList.add('active');
-
-                    const category = this.getAttribute('data-category');
-
-                    // Show/hide posts based on category
-                    posts.forEach(post => {
-                        if (!category || post.getAttribute('data-category') === category) {
-                            post.style.display = 'flex';
-                            // Add subtle animation
-                            post.style.animation = 'fadeIn 0.3s ease-in';
-                        } else {
-                            post.style.display = 'none';
-                        }
-                    });
+                    const language = this.getAttribute('data-language');
+                    filterByLanguage(language);
                 });
             });
         });

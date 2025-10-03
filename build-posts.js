@@ -36,25 +36,32 @@ function escapeHtml(text) {
 function getPostTemplate(frontmatter, content, colorClass) {
   const { title, description, category, date, readTime } = frontmatter;
 
-  const categoryColors = {
-    learning: 'green',
-    technical: 'blue',
-    updates: 'red'
+  const languageColors = {
+    en: 'red',
+    fr: 'blue',
+    it: 'green'
   };
 
-  const colorName = categoryColors[category] || 'blue';
-  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
+  const languageNames = {
+    en: 'English',
+    fr: 'Français',
+    it: 'Italiano'
+  };
+
+  const language = frontmatter.language || 'en';
+  const colorName = languageColors[language] || 'red';
+  const languageName = languageNames[language] || 'English';
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="${language}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Cromoteca</title>
     <meta name="description" content="${description}">
-    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="../../favicon-192.png">
-    <link rel="stylesheet" href="../../styles.css">
+    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="../../../favicon-192.png">
+    <link rel="stylesheet" href="../../../styles.css">
     <style>
         .post-content {
             max-width: 800px;
@@ -193,8 +200,8 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <header class="header">
         <div class="container">
             <div class="logo-section">
-                <a href="../../index.html" class="logo-link">
-                    <img src="../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                <a href="../../../index.html" class="logo-link">
+                    <img src="../../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
                     <div class="brand">
                         <h1 class="site-title">Cromoteca</h1>
                         <p class="tagline">Software in Colors</p>
@@ -206,15 +213,16 @@ function getPostTemplate(frontmatter, content, colorClass) {
 
     <main class="main">
         <article class="post-content">
-            <a href="../../index.html" class="back-link">← Back to Blog</a>
+            <a href="../../../index.html" class="back-link">← Back to Blog</a>
 
             <h1>${title}</h1>
 
             <div class="post-meta">
                 <div class="post-category ${colorName}">
                     <div class="category-dot ${colorName}"></div>
-                    <span>${categoryName}</span>
+                    <span>${languageName}</span>
                 </div>
+                ${category ? `<span class="post-category-tag">${category}</span>` : ''}
                 <time class="post-date">${date}</time>
                 <span class="post-read-time">${readTime} min read</span>
             </div>
@@ -239,11 +247,17 @@ function processMarkdownFile(filePath) {
     const { data: frontmatter, content: markdownBody } = matter(markdownContent);
 
     // Validate required frontmatter
-    const required = ['title', 'description', 'category', 'date', 'readTime'];
+    const required = ['title', 'description', 'date', 'readTime', 'language'];
     for (const field of required) {
       if (!frontmatter[field]) {
         throw new Error(`Missing required frontmatter field: ${field}`);
       }
+    }
+
+    // Validate language
+    const validLanguages = ['en', 'fr', 'it'];
+    if (!validLanguages.includes(frontmatter.language)) {
+      throw new Error(`Invalid language: ${frontmatter.language}. Must be one of: ${validLanguages.join(', ')}`);
     }
 
     // Convert markdown to HTML
@@ -252,9 +266,17 @@ function processMarkdownFile(filePath) {
     // Generate complete HTML page
     const fullHtml = getPostTemplate(frontmatter, htmlContent);
 
-    // Determine output filename
+    // Determine output filename with language subdirectory
     const filename = path.basename(filePath, '.md');
-    const outputPath = path.join('posts', `${filename}.html`);
+    const language = frontmatter.language;
+    const outputDir = path.join('posts', language);
+
+    // Ensure language directory exists
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+
+    const outputPath = path.join(outputDir, `${filename}.html`);
 
     // Write HTML file
     fs.writeFileSync(outputPath, fullHtml);
@@ -281,37 +303,38 @@ function generateHomepagePostBlocks(posts) {
     return dateB - dateA; // Newest first
   });
 
-  const categoryColors = {
-    learning: 'green',
-    technical: 'blue',
-    updates: 'red'
+  const languageColors = {
+    en: 'red',
+    fr: 'blue',
+    it: 'green'
   };
 
-  const categoryNames = {
-    learning: 'Learning',
-    technical: 'Technical',
-    updates: 'Updates'
+  const languageNames = {
+    en: 'English',
+    fr: 'Français',
+    it: 'Italiano'
   };
 
   return sortedPosts.map(post => {
-    const { title, description, category, date, readTime } = post.frontmatter;
-    const colorName = categoryColors[category] || 'blue';
-    const categoryName = categoryNames[category] || 'Technical';
+    const { title, description, category, date, readTime, language } = post.frontmatter;
+    const colorName = languageColors[language] || 'red';
+    const languageName = languageNames[language] || 'English';
     const filename = post.filename;
 
-    return `                    <!-- ${categoryName} Post -->
-                    <article class="post-card ${category}" data-category="${category}">
+    return `                    <!-- ${languageName} Post -->
+                    <article class="post-card ${language}" data-language="${language}" ${category ? `data-category="${category}"` : ''}>
                         <div class="post-header">
                             <div class="post-category ${colorName}">
                                 <div class="category-dot ${colorName}"></div>
-                                <span>${categoryName}</span>
+                                <span>${languageName}</span>
                             </div>
+                            ${category ? `<span class="post-category-tag">${category}</span>` : ''}
                             <time class="post-date">${date}</time>
                         </div>
                         <h4 class="post-title">${title}</h4>
                         <p class="post-excerpt">${description}</p>
                         <div class="post-footer">
-                            <a href="posts/${filename}.html" class="post-link ${colorName}-link">Read More</a>
+                            <a href="posts/${language}/${filename}.html" class="post-link ${colorName}-link">Read More</a>
                             <span class="post-read-time">${readTime} min read</span>
                         </div>
                     </article>`;
@@ -320,14 +343,15 @@ function generateHomepagePostBlocks(posts) {
 
 // Update homepage with generated post blocks
 function updateHomepage(posts) {
+  const templatePath = path.join('src', 'index.template.html');
   const indexPath = 'index.html';
 
-  if (!fs.existsSync(indexPath)) {
-    console.error('❌ index.html not found');
+  if (!fs.existsSync(templatePath)) {
+    console.error('❌ src/index.template.html not found');
     return;
   }
 
-  let indexContent = fs.readFileSync(indexPath, 'utf8');
+  let indexContent = fs.readFileSync(templatePath, 'utf8');
 
   // Find the posts grid section
   const startMarker = '<div class="posts-grid">';
@@ -337,7 +361,7 @@ function updateHomepage(posts) {
   const endIndex = indexContent.indexOf(endMarker, startIndex);
 
   if (startIndex === -1 || endIndex === -1) {
-    console.error('❌ Could not find posts grid section in index.html');
+    console.error('❌ Could not find posts grid section in index.template.html');
     return;
   }
 
@@ -350,7 +374,7 @@ function updateHomepage(posts) {
     indexContent.substring(endIndex);
 
   fs.writeFileSync(indexPath, newContent);
-  console.log('✅ Updated homepage with generated post blocks');
+  console.log('✅ Generated index.html from template with post blocks');
 }
 
 // Main build function

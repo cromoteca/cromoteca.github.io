@@ -2,8 +2,9 @@
 node_modules/
 npm-debug.log*
 
-# Generated/built files - HTML posts are generated from Markdown
+# Generated/built files - HTML posts and index are generated from source
 /posts/
+/index.html
 
 # Build artifacts
 .npm

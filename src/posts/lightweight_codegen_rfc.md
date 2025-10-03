@@ -2,6 +2,7 @@
 title: "RFC: Lightweight Java Code Generator for Hilla"
 description: "Proposing a simplified Java-only code generator to accelerate feature development and support WebAssembly toolkit integration."
 category: "technical"
+language: "en"
 date: "September 23, 2025"
 readTime: 8
 ---

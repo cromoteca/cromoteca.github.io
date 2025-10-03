@@ -1,49 +1,52 @@
 # Cromoteca - Software in Colors
 
-A technical blog with color-coded content categories, now featuring Markdown-to-HTML workflow for easy content creation.
+A multilingual technical blog with color-coded languages, featuring Markdown-to-HTML workflow for easy content creation.
 
 ## 🎨 Color System
 
-- **Green (Learning)**: Tutorials, guides, learning resources
-- **Blue (Technical)**: Deep technical content, architecture, APIs
-- **Red (Updates)**: Important announcements, security updates, breaking changes
+- **Red (English)**: Articles in English
+- **Blue (Français)**: Articles in French
+- **Green (Italiano)**: Articles in Italian
+
+The blog automatically detects your browser language and shows posts in that language by default.
 
 ## ✍️ Writing New Posts
 
 ### Using Markdown (Recommended)
 
-1. Create a new `.md` file in `posts/markdown/`
+1. Create a new `.md` file in `src/posts/`
 2. Add frontmatter with post details:
    ```yaml
    ---
    title: "Your Post Title"
    description: "Brief description for cards and SEO"
-   category: "learning"  # learning, technical, or updates
+   language: "en"  # en, fr, or it
+   category: "technical"  # optional, any category you want
    date: "December 25, 2024"
    readTime: 8  # minutes
    ---
    ```
 3. Write your content in Markdown
 4. Build HTML: `npm run build:posts`
-5. Add post entry to `index.html` posts grid
+5. The post will be automatically added to the homepage
 6. Test and commit
 
 ### Frontmatter Fields
 
 - **title**: Post title (required)
 - **description**: Brief description for post cards and meta tags (required)
-- **category**: One of `learning`, `technical`, `updates` (required)
+- **language**: One of `en`, `fr`, `it` (required)
+- **category**: Any category tag you want (optional)
 - **date**: Display date in readable format (required)
 - **readTime**: Estimated reading time in minutes (required)
-- **slug**: Custom filename (optional, defaults to .md filename)
 
 ### Markdown Features Supported
 
 - Standard Markdown syntax
 - Syntax-highlighted code blocks
-- Blockquotes (styled with category colors)
+- Blockquotes (styled with language colors)
 - Lists, tables, links
-- Automatic color-coded styling based on category
+- Automatic color-coded styling based on language
 
 ## 🛠️ Development
 
@@ -64,59 +67,56 @@ npm run preview
 ## 📁 Project Structure
 
 ```
-├── index.html              # Blog homepage
+├── src/
+│   ├── index.template.html # Homepage template (committed)
+│   └── posts/              # Markdown source files (committed)
+│       └── *.md           # Your blog posts
+├── index.html              # Generated homepage (ignored by git)
+├── posts/                  # Generated posts (ignored by git)
+│   ├── en/                 # English posts
+│   ├── fr/                 # French posts
+│   └── it/                 # Italian posts
 ├── styles.css              # Complete theme
 ├── build-posts.js          # Markdown to HTML converter
 ├── package.json            # Dependencies and scripts
-├── posts/
-│   ├── markdown/           # Markdown source files
-│   │   ├── template.md     # Template for new posts
-│   │   └── *.md           # Your blog posts
-│   └── *.html             # Generated HTML files
 ├── header-cromoteca.svg    # Logo
 ├── CNAME                   # GitHub Pages domain
 └── README.md              # This file
 ```
 
+**Note**: `index.html` and `posts/` are generated files and are not committed to git. Only the source files in `src/` are version controlled.
+
 ## 🚀 Deployment
 
 This site is configured for GitHub Pages:
 
-1. Push changes to the `main` branch
-2. GitHub Pages will automatically serve from the repository
-3. Custom domain configured via `CNAME` file
+1. Run `npm run build:posts` to generate `index.html` and all post HTML files
+2. Push changes to the `main` branch (only source files in `src/` are committed)
+3. **Important**: Before deploying, ensure you commit the deletion of `index.html` from git tracking (it should be generated, not committed)
+4. Set up a GitHub Actions workflow or build script to run `npm run build:posts` on deployment
+5. Custom domain configured via `CNAME` file
+
+**Note**: Since `index.html` is now ignored by git, you'll need to build it during deployment. Consider adding a GitHub Actions workflow to run the build process.
 
 ## 🎯 Features
 
-- **Color-coded categories** with meaningful organization
+- **Color-coded languages** with automatic detection
+- **Multilingual support** (English, French, Italian)
+- **Browser language detection** - automatically shows posts in your language
 - **Responsive design** for all devices
-- **JavaScript filtering** by category
+- **JavaScript filtering** by language
 - **Markdown workflow** for easy content creation
 - **Professional typography** with code highlighting
-- **SEO-friendly** with proper meta tags
+- **SEO-friendly** with proper meta tags and language attributes
 - **Clean, minimal design** focused on readability
 
-## 📝 Adding Posts to Homepage
+## 📝 How It Works
 
-After generating HTML from Markdown, add the post to your homepage:
-
-```html
-<article class="post-card technical" data-category="technical">
-    <div class="post-header">
-        <div class="post-category blue">
-            <div class="category-dot blue"></div>
-            <span>Technical</span>
-        </div>
-        <time class="post-date">December 23, 2024</time>
-    </div>
-    <h4 class="post-title">Your Post Title</h4>
-    <p class="post-excerpt">Brief description of your post...</p>
-    <div class="post-footer">
-        <a href="posts/your-post.html" class="post-link blue-link">Read More</a>
-        <span class="post-read-time">12 min read</span>
-    </div>
-</article>
-```
+1. Write your post in Markdown in `src/posts/` with language frontmatter
+2. Run `npm run build:posts` to generate HTML files
+3. Posts are automatically organized by language in `posts/en/`, `posts/fr/`, or `posts/it/`
+4. The homepage is automatically updated with all posts
+5. Browser language detection shows relevant posts on page load
 
 ---
 
