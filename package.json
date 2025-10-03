@@ -5,11 +5,16 @@
   "scripts": {
     "build:posts": "node build-posts.js",
     "dev": "python3 -m http.server 8000",
-    "preview": "npm run build:posts && npm run dev"
+    "preview": "npm run build:posts && npm run dev",
+    "watch": "node watch.js",
+    "dev:watch": "npm run build:posts && (npm run watch & npm run dev)"
   },
   "dependencies": {
     "marked": "^12.0.0",
     "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "chokidar": "^3.6.0"
   },
   "keywords": [
     "blog",

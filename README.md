@@ -62,7 +62,24 @@ npm run dev
 
 # Build and preview
 npm run preview
+
+# Watch for changes and auto-rebuild (recommended for development)
+npm run dev:watch
 ```
+
+### Development Workflow
+
+**Recommended**: Use `npm run dev:watch` for development. This will:
+1. Build all posts and the homepage
+2. Start a local server at http://localhost:8000
+3. Watch for changes to source files and automatically rebuild
+
+Watched files:
+- `src/posts/**/*.md` - All markdown posts
+- `src/index.template.html` - Homepage template
+- `build-posts.js` - Build script
+
+Just edit your files and refresh the browser to see changes!
 
 ## 📁 Project Structure
 
