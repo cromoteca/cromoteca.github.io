@@ -71,23 +71,44 @@
     </footer>
 
     <script>
-        // Blog language filtering and browser language detection
+        // Blog language filtering with localStorage persistence
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const posts = document.querySelectorAll('.post-card');
-
-            // Detect browser language and filter on load
-            const browserLang = navigator.language || navigator.userLanguage;
-            const langCode = browserLang.split('-')[0]; // Get 'en' from 'en-US'
+            const STORAGE_KEY = 'cromoteca-preferred-language';
 
             // Valid languages we support
             const validLangs = ['en', 'fr', 'it'];
-            const preferredLang = validLangs.includes(langCode) ? langCode : 'en';
 
-            // Filter posts by detected language on page load
+            // Determine preferred language (priority: saved > browser > default)
+            function getPreferredLanguage() {
+                // 1. Check localStorage for saved preference
+                const savedLang = localStorage.getItem(STORAGE_KEY);
+                if (savedLang && validLangs.includes(savedLang)) {
+                    return savedLang;
+                }
+
+                // 2. Detect browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                const langCode = browserLang.split('-')[0]; // Get 'en' from 'en-US'
+                if (validLangs.includes(langCode)) {
+                    return langCode;
+                }
+
+                // 3. Default to English
+                return 'en';
+            }
+
+            // Filter posts by detected/saved language on page load
+            const preferredLang = getPreferredLanguage();
             filterByLanguage(preferredLang);
 
             function filterByLanguage(language) {
+                // Save preference to localStorage
+                if (language) {
+                    localStorage.setItem(STORAGE_KEY, language);
+                }
+
                 // Update active state on nav
                 navLinks.forEach(l => l.classList.remove('active'));
                 const activeLink = language ?

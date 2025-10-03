@@ -103,6 +103,7 @@ This site is configured for GitHub Pages:
 - **Color-coded languages** with automatic detection
 - **Multilingual support** (English, French, Italian)
 - **Browser language detection** - automatically shows posts in your language
+- **Language preference persistence** - remembers your language choice using localStorage (persists even after closing browser)
 - **Responsive design** for all devices
 - **JavaScript filtering** by language
 - **Markdown workflow** for easy content creation
