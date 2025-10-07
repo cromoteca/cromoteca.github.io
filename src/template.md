@@ -1,7 +1,7 @@
 ---
 title: "Your Post Title Here"
 description: "Brief description of your post that appears in the post card and meta tags"
-category: "learning"  # Options: learning, technical, updates
+category: "learning"  # Examples: learning, technical, updates, opinions
 date: "December 25, 2024"
 readTime: 8  # Estimated reading time in minutes
 slug: "your-post-slug"  # Optional: custom filename (defaults to markdown filename)
