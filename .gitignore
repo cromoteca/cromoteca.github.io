@@ -30,3 +30,11 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Temporary
+/ROOT/
+
+# Archive - legacy content stored in repo but not built/published
+# These are viewable on GitHub but excluded from the live site
+convert-legacy.js
+CONVERSION_NOTES.md

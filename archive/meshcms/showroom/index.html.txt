@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Showroom</title>
+    <meta name="meshcms:module" content="bottom:m_tpl:gallery" />
+    <meta name="meshcms:module" content="bottom:m_arg:(none)" />
+    <meta name="meshcms:module" content="bottom:m_ttl:(none)" />
+    <meta name="meshcms:module" content="bottom:order:random" />
+    <meta name="meshcms:module" content="bottom:columns:4" />
+  </head>
+
+  <body>
+    <p>To better evaluate what MeshCMS can do, take a look at some sites
+    powered by it. Sites are ordered randomly and the order changes
+    automatically from time to time.</p>
+
+    <p>If you have a website that uses MeshCMS and want to list it here, <a
+    href="../../contact.html">drop me a line</a> with the URL. <strong>I won't
+    list sites without owner's permission</strong>, so if you want to see more
+    examples, just search the web for "meshcms".</p>
+  </body>
+</html>
+

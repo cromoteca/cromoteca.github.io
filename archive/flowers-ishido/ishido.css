@@ -1,0 +1,159 @@
+div#f_checker {
+	position: absolute;
+	font-family: monospace;
+}
+
+.f_portrait,.f_landscape {
+	background-color: black;
+}
+
+.f_portrait div.f_row {
+	width: 100%;
+	height: 7.69%;
+}
+
+.f_portrait img.f_tile {
+	width: 12.49%;
+	height: 100%;
+}
+
+.f_landscape div.f_row {
+	float: left;
+	width: 7.69%;
+	height: 100%;
+}
+
+.f_landscape img.f_tile {
+	width: 100%;
+	height: 12.49%;
+}
+
+img.f_tile {
+	float: left;
+	background-color: silver;
+}
+
+img.f_red {
+	background-color: red;
+}
+
+img.f_green {
+	background-color: green;
+}
+
+img.f_blue {
+	background-color: blue;
+}
+
+img.f_yellow {
+	background-color: yellow;
+}
+
+img.f_fuchsia {
+	background-color: fuchsia;
+}
+
+img.f_orange {
+	background-color: orange;
+}
+
+#f_bar {
+	color: white;
+}
+
+.f_portrait #f_bar div {
+	float: left;
+	width: 16.66%;
+	height: 100%;
+}
+
+.f_portrait div.f_label {
+	text-align: right;
+}
+
+.f_portrait img#f_next {
+	height: 100%;
+}
+
+.f_landscape #f_bar div {
+	width: 100%;
+	height: 16.66%;
+	text-align: center;
+}
+
+.f_landscape div.f_label {
+	position: relative;
+}
+
+.f_landscape div.f_label span {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.f_landscape img#f_next {
+	width: 100%;
+}
+
+#f_chart {
+	position: absolute;
+	top: 10%;
+	right: 10%;
+	left: 10%;
+	margin: 0 auto;
+	max-width: 30em;
+	background-color: #202020;
+	padding: 1em;
+	color: white;
+	border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	box-shadow: 0 0 1em white;
+	-moz-box-shadow: 0 0 1em white;
+	-webkit-box-shadow: 0 0 1em white;
+	opacity: 0.9;
+}
+
+#f_chart div.f_close {
+	text-align: right;
+	line-height: 0.6em;
+	font-size: 1.5em;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+#f_chart div.f_close span {
+	cursor: pointer;
+}
+
+#f_chart div.f_title {
+	text-align: center;
+	font-weight: bold;
+	font-style: italic;
+}
+
+#f_chart div.f_score input {
+	width: 50%;
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px dotted silver;
+	border-left: none;
+	background-color: #202020;
+	color: white;
+	font-family: monospace;
+}
+
+#f_chart span.f_score {
+	float: right;
+}
+
+#f_shield {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: black;
+	opacity: 0.7;
+}

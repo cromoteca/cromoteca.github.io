@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<XML_DIZ_INFO>
+<MASTER_PAD_VERSION_INFO>
+    <MASTER_PAD_VERSION>1.15</MASTER_PAD_VERSION>
+    <MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+</MASTER_PAD_VERSION_INFO>
+<Company_Info>
+        <Company_Name>Cromoteca</Company_Name>
+        <Address_1 />
+        <Address_2 />
+        <City_Town>Chieti</City_Town>
+        <State_Province>CH</State_Province>
+        <Zip_Postal_Code>66100</Zip_Postal_Code>
+        <Country>Italy</Country>
+        <Company_WebSite_URL>http://www.cromoteca.com</Company_WebSite_URL>
+<Contact_Info>
+        <Author_First_Name>Luciano</Author_First_Name>
+        <Author_Last_Name>Vernaschi</Author_Last_Name>
+        <Author_Email />
+        <Contact_First_Name />
+        <Contact_Last_Name />
+        <Contact_Email />
+    </Contact_Info>
+<Support_Info>
+        <Sales_Email />
+        <Support_Email />
+        <General_Email />
+        <Sales_Phone />
+        <Support_Phone />
+        <General_Phone />
+        <Fax_Phone />
+    </Support_Info>
+</Company_Info>
+<Program_Info>
+        <Program_Name>Isaac</Program_Name>
+        <Program_Version>3.1.1</Program_Version>
+        <Program_Release_Month>02</Program_Release_Month>
+        <Program_Release_Day>25</Program_Release_Day>
+        <Program_Release_Year>2005</Program_Release_Year>
+        <Program_Cost_Dollars />
+        <Program_Cost_Other_Code />
+        <Program_Cost_Other />
+        <Program_Type>Freeware</Program_Type>
+        <Program_Release_Status>Minor Update</Program_Release_Status>
+        <Program_Install_Support>Install and Uninstall</Program_Install_Support>
+        <Program_OS_Support>WinNT 4.x,WinXP,Windows2000</Program_OS_Support>
+        <Program_Language>English</Program_Language>
+<File_Info>
+        <Filename_Versioned />
+        <Filename_Previous />
+        <Filename_Generic>isaacwin.exe</Filename_Generic>
+        <Filename_Long />
+        <File_Size_Bytes>3960979</File_Size_Bytes>
+        <File_Size_K>3868</File_Size_K>
+        <File_Size_MB>3.78</File_Size_MB>
+    </File_Info>
+<Expire_Info>
+        <Has_Expire_Info>N</Has_Expire_Info>
+        <Expire_Count />
+        <Expire_Based_On>Days</Expire_Based_On>
+        <Expire_Other_Info />
+        <Expire_Month />
+        <Expire_Day />
+        <Expire_Year />
+    </Expire_Info>
+        <Program_Change_Info />
+        <Program_Specific_Category>Graphics</Program_Specific_Category>
+        <Program_Categories />
+        <Program_System_Requirements />
+        <Includes_JAVA_VM>Y</Includes_JAVA_VM>
+        <Includes_VB_Runtime>N</Includes_VB_Runtime>
+        <Includes_DirectX>N</Includes_DirectX>
+</Program_Info>
+<Program_Descriptions>
+<English>
+        <Keywords>animation,menus,mouseover,rollover,visual,java,buttons,animated,gif,javascript</Keywords>
+        <Char_Desc_45>Visual editor of web animations and menus.</Char_Desc_45>
+        <Char_Desc_80>Visual editor of animations, menus and other objects for web pages.</Char_Desc_80>
+        <Char_Desc_250 />
+        <Char_Desc_450>Isaac creates animations, rollover effects, interactive tools, menus, presentations, site intros, and any other thing your imagination could suggest. And it does all this by simply manipulating some images with a visual interface, without writing code. Isaac produces HTML files that are ready to be copied or inserted into your web sites. An animated GIF is included when exporting, along with an HTML map for the links.</Char_Desc_450>
+        <Char_Desc_2000>Isaac creates animations, rollover effects, interactive tools, menus, presentations, site intros, and any other thing your imagination could suggest. And it does all this by simply manipulating some images with a visual interface, without writing code. Isaac produces HTML files that are ready to be copied or inserted into your web sites. Isaac can also generate animated GIFs. The animated GIF is now included when exporting, along with an HTML map for the links, as an alternative if the user disabled Java.</Char_Desc_2000>
+</English>
+</Program_Descriptions>
+<Web_Info>
+<Application_URLs>
+        <Application_Info_URL>http://www.cromoteca.com/isaac</Application_Info_URL>
+        <Application_Order_URL />
+        <Application_Screenshot_URL>http://www.cromoteca.com/_modules/gallery_isaac/main_window.gif</Application_Screenshot_URL>
+        <Application_Icon_URL />
+        <Application_XML_File_URL>http://www.cromoteca.com/isaac/isaacwin.xml</Application_XML_File_URL>
+    </Application_URLs>
+<Download_URLs>
+        <Primary_Download_URL>http://www.cromoteca.com/isaac/isaacwin.exe</Primary_Download_URL>
+        <Secondary_Download_URL />
+        <Additional_Download_URL_1 />
+        <Additional_Download_URL_2 />
+    </Download_URLs>
+</Web_Info>
+<Permissions>
+        <Distribution_Permissions />
+        <EULA>Isaac Version 3.1.1
+Copyright (C) 1999-2004 Luciano Vernaschi
+All Rights Reserved
+
+Please note that the use of the program indicates and implies your acceptance of the appropriate License.
+
+This license applies to the program AND the applet.
+
+THIS SOFTWARE, AND ALL ACCOMPANYING FILES, DATA AND MATERIALS, ARE DISTRIBUTED &quot;AS IS&quot; AND WITH NO WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THE AGREEMENT.
+
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY INCIDENTAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES WHATSOEVER RELATING TO THE USE OF THE PROGRAM, OR YOUR RELATIONSHIP WITH THE AUTHOR.
+
+All rights of any kind in Isaac which are not expressly granted in this License are entirely and exclusively reserved to and by the author. You may not rent, lease, modify, translate, reverse engineer, decompile, disassemble or create derivative works based on Isaac.
+
+You may, without making any payment to the author:
+
+- give exact copies of the program personally to anyone;
+- distribute exact copies of the program through electronic channels;
+- distribute exact copies of the program through promotional cd-roms.
+
+&quot;Exact copies&quot; means that you may only distribute one of the packed files that you find on the web site of the program. In other words, receiving a copy of the program from you must be exactly the same as downloading it from the official download page of Isaac.
+
+OUTSIDE OF THESE RIGHTS, YOU ARE SPECIFICALLY PROHIBITED FROM CHARGING, OR REQUESTING DONATIONS, FOR ANY COPIES, HOWEVER MADE, AND FROM DISTRIBUTING SUCH COPIES WITH OTHER PRODUCTS OF ANY KIND, COMMERCIAL OR OTHERWISE, WITHOUT PRIOR WRITTEN PERMISSION FROM THE AUTHOR. THE AUTHOR RESERVES THE RIGHT TO REVOKE THE ABOVE DISTRIBUTION RIGHTS AT ANY TIME, FOR ANY OR NO REASON.</EULA>
+</Permissions>
+</XML_DIZ_INFO>
