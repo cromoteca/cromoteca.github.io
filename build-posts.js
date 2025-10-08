@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const matter = require('gray-matter');
+const config = require('./build.config');
 
 // Configure marked for better code highlighting
 marked.setOptions({
@@ -33,24 +34,14 @@ function escapeHtml(text) {
 }
 
 // HTML template for blog posts
-function getPostTemplate(frontmatter, content, colorClass) {
+// postOutputPath: absolute path to where the HTML file will be written
+function getPostTemplate(frontmatter, content, postOutputPath) {
   const { title, description, category, date, readTime } = frontmatter;
 
-  const languageColors = {
-    en: 'red',
-    fr: 'blue',
-    it: 'green'
-  };
-
-  const languageNames = {
-    en: 'English',
-    fr: 'Français',
-    it: 'Italiano'
-  };
-
   const language = frontmatter.language || 'en';
-  const colorName = languageColors[language] || 'red';
-  const languageName = languageNames[language] || 'English';
+  const langConfig = config.languages[language] || config.languages.en;
+  const colorName = langConfig.color;
+  const languageName = langConfig.name;
 
   return `<!DOCTYPE html>
 <html lang="${language}">
@@ -59,9 +50,9 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${title} - Cromoteca</title>
     <meta name="description" content="${description}">
-    <link rel="icon" type="image/x-icon" href="../../../favicon.ico">
-    <link rel="icon" type="image/png" sizes="192x192" href="../../../favicon-192.png">
-    <link rel="stylesheet" href="../../../styles.css">
+    <link rel="icon" type="image/x-icon" href="${config.getAssetPath(postOutputPath, 'favicon')}">
+    <link rel="icon" type="image/png" sizes="192x192" href="${config.getAssetPath(postOutputPath, 'faviconPng')}">
+    <link rel="stylesheet" href="${config.getAssetPath(postOutputPath, 'stylesheet')}">
     <style>
         .post-content {
             max-width: 800px;
@@ -200,8 +191,8 @@ function getPostTemplate(frontmatter, content, colorClass) {
     <header class="header">
         <div class="container">
             <div class="logo-section">
-                <a href="../../../index.html" class="logo-link">
-                    <img src="../../../header-cromoteca.svg" alt="Cromoteca Logo" class="logo">
+                <a href="${config.getHomePath(postOutputPath)}" class="logo-link">
+                    <img src="${config.getAssetPath(postOutputPath, 'logo')}" alt="Cromoteca Logo" class="logo">
                     <div class="brand">
                         <h1 class="site-title">Cromoteca</h1>
                         <p class="tagline">Software in Colors</p>
@@ -213,7 +204,7 @@ function getPostTemplate(frontmatter, content, colorClass) {
 
     <main class="main">
         <article class="post-content">
-            <a href="../../../index.html" class="back-link">← Back to Blog</a>
+            <a href="${config.getHomePath(postOutputPath)}" class="back-link">← Back to Blog</a>
 
             <h1>${title}</h1>
 
@@ -255,7 +246,7 @@ function processMarkdownFile(filePath) {
     }
 
     // Validate language
-    const validLanguages = ['en', 'fr', 'it'];
+    const validLanguages = Object.keys(config.languages);
     if (!validLanguages.includes(frontmatter.language)) {
       throw new Error(`Invalid language: ${frontmatter.language}. Must be one of: ${validLanguages.join(', ')}`);
     }
@@ -263,13 +254,10 @@ function processMarkdownFile(filePath) {
     // Convert markdown to HTML
     const htmlContent = marked(markdownBody);
 
-    // Generate complete HTML page
-    const fullHtml = getPostTemplate(frontmatter, htmlContent);
-
     // Determine output filename with language subdirectory
     const filename = path.basename(filePath, '.md');
     const language = frontmatter.language;
-    const outputDir = path.join('posts', language);
+    const outputDir = path.join(config.paths.postsOutput, language);
 
     // Ensure language directory exists
     if (!fs.existsSync(outputDir)) {
@@ -277,6 +265,9 @@ function processMarkdownFile(filePath) {
     }
 
     const outputPath = path.join(outputDir, `${filename}.html`);
+
+    // Generate complete HTML page with the output path for relative links
+    const fullHtml = getPostTemplate(frontmatter, htmlContent, outputPath);
 
     // Write HTML file
     fs.writeFileSync(outputPath, fullHtml);
@@ -303,23 +294,26 @@ function generateHomepagePostBlocks(posts) {
     return dateB - dateA; // Newest first
   });
 
-  const languageColors = {
-    en: 'red',
-    fr: 'blue',
-    it: 'green'
-  };
+  // Separate recent posts (within 1 year) from older posts
+  const oneYearAgo = new Date();
+  oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
 
-  const languageNames = {
-    en: 'English',
-    fr: 'Français',
-    it: 'Italiano'
-  };
+  const recentPosts = sortedPosts.filter(post => {
+    return new Date(post.frontmatter.date) >= oneYearAgo;
+  });
 
-  return sortedPosts.map(post => {
+  const olderPosts = sortedPosts.filter(post => {
+    return new Date(post.frontmatter.date) < oneYearAgo;
+  });
+
+  const generatePostCard = (post) => {
     const { title, description, category, date, readTime, language } = post.frontmatter;
-    const colorName = languageColors[language] || 'red';
-    const languageName = languageNames[language] || 'English';
-    const filename = post.filename;
+    const langConfig = config.languages[language] || config.languages.en;
+    const colorName = langConfig.color;
+    const languageName = langConfig.name;
+
+    // Get the relative path from index.html to the post
+    const postUrl = config.getPostPathFromHome(post.outputPath);
 
     return `                    <!-- ${languageName} Post -->
                     <article class="post-card ${language}" data-language="${language}" ${category ? `data-category="${category}"` : ''}>
@@ -330,23 +324,42 @@ function generateHomepagePostBlocks(posts) {
                             </div>` : ''}
                             <time class="post-date">${date}</time>
                         </div>
-                        <h4 class="post-title">${title}</h4>
+                        <a href="${postUrl}" class="post-title-link">
+                            <h4 class="post-title">${title}</h4>
+                        </a>
                         <p class="post-excerpt">${description}</p>
                         <div class="post-footer">
-                            <a href="posts/${language}/${filename}.html" class="post-link ${colorName}-link">Read More</a>
+                            <a href="${postUrl}" class="post-link ${colorName}-link">Read More</a>
                             <span class="post-read-time">${readTime} min read</span>
                         </div>
                     </article>`;
-  }).join('\n\n');
+  };
+
+  let output = '';
+
+  if (recentPosts.length > 0) {
+    output += '                    <h3 class="posts-section-title">Recent Posts</h3>\n';
+    output += recentPosts.map(generatePostCard).join('\n\n');
+  }
+
+  if (olderPosts.length > 0) {
+    if (recentPosts.length > 0) {
+      output += '\n\n';
+    }
+    output += '                    <h3 class="posts-section-title">Archive</h3>\n';
+    output += olderPosts.map(generatePostCard).join('\n\n');
+  }
+
+  return output;
 }
 
 // Update homepage with generated post blocks
 function updateHomepage(posts) {
-  const templatePath = path.join('src', 'index.template.html');
-  const indexPath = 'index.html';
+  const templatePath = config.paths.indexTemplate;
+  const indexPath = config.paths.indexOutput;
 
   if (!fs.existsSync(templatePath)) {
-    console.error('❌ src/index.template.html not found');
+    console.error(`❌ ${templatePath} not found`);
     return;
   }
 
@@ -360,7 +373,7 @@ function updateHomepage(posts) {
   const endIndex = indexContent.indexOf(endMarker, startIndex);
 
   if (startIndex === -1 || endIndex === -1) {
-    console.error('❌ Could not find posts grid section in index.template.html');
+    console.error(`❌ Could not find posts grid section in ${templatePath}`);
     return;
   }
 
@@ -373,19 +386,19 @@ function updateHomepage(posts) {
     indexContent.substring(endIndex);
 
   fs.writeFileSync(indexPath, newContent);
-  console.log('✅ Generated index.html from template with post blocks');
+  console.log(`✅ Generated ${indexPath} from template with post blocks`);
 }
 
 // Main build function
 function buildPosts() {
-  const markdownDir = path.join('src', 'posts');
-  const outputDir = 'posts';
+  const markdownDir = config.paths.postsSource;
+  const outputDir = config.paths.postsOutput;
 
   // Check if source directory exists
   if (!fs.existsSync(markdownDir)) {
-    console.log('📁 Creating src/posts directory...');
+    console.log(`📁 Creating ${markdownDir} directory...`);
     fs.mkdirSync(markdownDir, { recursive: true });
-    console.log('✅ Directory created. Add your .md files to src/posts/');
+    console.log(`✅ Directory created. Add your .md files to ${markdownDir}/`);
     return;
   }
 
@@ -400,7 +413,7 @@ function buildPosts() {
     .map(file => path.join(markdownDir, file));
 
   if (markdownFiles.length === 0) {
-    console.log('📝 No Markdown files found in src/posts/');
+    console.log(`📝 No Markdown files found in ${markdownDir}/`);
     console.log('   Add your .md files there and run this script again.');
     return;
   }
