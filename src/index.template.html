@@ -32,8 +32,8 @@
     <main class="main">
         <section class="hero">
             <div class="container">
-                <h2 class="hero-title">Welcome to <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span></h2>
-                <p class="hero-description">My name is Luciano Vernaschi and this site is my point of presence in the virtual world.</p>
+                <h2 class="hero-title" data-i18n="heroTitle">Welcome to <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span></h2>
+                <p class="hero-description" data-i18n="heroDescription">My name is Luciano Vernaschi and this site is my point of presence in the virtual world.</p>
             </div>
         </section>
 
@@ -48,15 +48,41 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025 Luciano Vernaschi.</p>
+            <p class="footer-text" data-i18n="footer">&copy; 2025 Luciano Vernaschi.</p>
         </div>
     </footer>
 
     <script>
+        // I18n strings
+        const i18n = {
+            en: {
+                heroTitle: 'Welcome to <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+                heroDescription: 'My name is Luciano Vernaschi and this site is my point of presence in the virtual world.',
+                recentPosts: 'Recent Posts',
+                archive: 'Archive',
+                footer: '© 2025 Luciano Vernaschi.'
+            },
+            fr: {
+                heroTitle: 'Bienvenue sur <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+                heroDescription: 'Je m\'appelle Luciano Vernaschi et ce site est mon point de présence dans le monde virtuel.',
+                recentPosts: 'Articles Récents',
+                archive: 'Archives',
+                footer: '© 2025 Luciano Vernaschi.'
+            },
+            it: {
+                heroTitle: 'Benvenuto su <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+                heroDescription: 'Mi chiamo Luciano Vernaschi e questo sito è il mio punto di presenza nel mondo virtuale.',
+                recentPosts: 'Articoli Recenti',
+                archive: 'Archivio',
+                footer: '© 2025 Luciano Vernaschi.'
+            }
+        };
+
         // Blog language filtering with localStorage persistence
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const posts = document.querySelectorAll('.post-card');
+            const sectionTitles = document.querySelectorAll('.posts-section-title');
             const STORAGE_KEY = 'cromoteca-preferred-language';
 
             // Valid languages we support
@@ -81,6 +107,25 @@
                 return 'en';
             }
 
+            // Update i18n text elements
+            function updateI18n(language) {
+                const strings = i18n[language] || i18n.en;
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (strings[key]) {
+                        el.innerHTML = strings[key];
+                    }
+                });
+
+                // Update section titles
+                sectionTitles.forEach(title => {
+                    const key = title.getAttribute('data-section');
+                    if (key && strings[key]) {
+                        title.textContent = strings[key];
+                    }
+                });
+            }
+
             // Filter posts by detected/saved language on page load
             const preferredLang = getPreferredLanguage();
             filterByLanguage(preferredLang);
@@ -88,6 +133,9 @@
             function filterByLanguage(language) {
                 // Save preference to localStorage
                 localStorage.setItem(STORAGE_KEY, language);
+
+                // Update i18n strings
+                updateI18n(language);
 
                 // Update active state on nav
                 navLinks.forEach(l => l.classList.remove('active'));

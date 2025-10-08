@@ -45,6 +45,40 @@ module.exports = {
     }
   },
 
+  // Internationalization strings
+  i18n: {
+    en: {
+      heroTitle: 'Welcome to <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+      heroDescription: 'My name is Luciano Vernaschi and this site is my point of presence in the virtual world.',
+      backToBlog: '← Back to Blog',
+      recentPosts: 'Recent Posts',
+      archive: 'Archive',
+      readMore: 'Read More',
+      minRead: 'min read',
+      footer: '© 2025 Luciano Vernaschi.'
+    },
+    fr: {
+      heroTitle: 'Bienvenue sur <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+      heroDescription: 'Je m\'appelle Luciano Vernaschi et ce site est mon point de présence dans le monde virtuel.',
+      backToBlog: '← Retour au Blog',
+      recentPosts: 'Articles Récents',
+      archive: 'Archives',
+      readMore: 'Lire Plus',
+      minRead: 'min de lecture',
+      footer: '© 2025 Luciano Vernaschi.'
+    },
+    it: {
+      heroTitle: 'Benvenuto su <span class="highlight-green">Software</span> in <span class="highlight-blue">Colors</span>',
+      heroDescription: 'Mi chiamo Luciano Vernaschi e questo sito è il mio punto di presenza nel mondo virtuale.',
+      backToBlog: '← Torna al Blog',
+      recentPosts: 'Articoli Recenti',
+      archive: 'Archivio',
+      readMore: 'Leggi di Più',
+      minRead: 'min di lettura',
+      footer: '© 2025 Luciano Vernaschi.'
+    }
+  },
+
   // Helper function to get relative path from a post file to an asset in root
   // postPath: absolute path to the output HTML file (e.g., /path/to/posts/en/foo.html)
   // assetName: name of the asset from paths.assets (e.g., 'favicon', 'stylesheet')

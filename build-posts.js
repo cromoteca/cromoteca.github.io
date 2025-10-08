@@ -42,6 +42,7 @@ function getPostTemplate(frontmatter, content, postOutputPath) {
   const langConfig = config.languages[language] || config.languages.en;
   const colorName = langConfig.color;
   const languageName = langConfig.name;
+  const i18n = config.i18n[language] || config.i18n.en;
 
   return `<!DOCTYPE html>
 <html lang="${language}">
@@ -204,7 +205,7 @@ function getPostTemplate(frontmatter, content, postOutputPath) {
 
     <main class="main">
         <article class="post-content">
-            <a href="${config.getHomePath(postOutputPath)}" class="back-link">← Back to Blog</a>
+            <a href="${config.getHomePath(postOutputPath)}" class="back-link">${i18n.backToBlog}</a>
 
             <h1>${title}</h1>
 
@@ -215,7 +216,7 @@ function getPostTemplate(frontmatter, content, postOutputPath) {
                 </div>
                 ${category ? `<span class="post-category-tag">${category}</span>` : ''}
                 <time class="post-date">${date}</time>
-                <span class="post-read-time">${readTime} min read</span>
+                <span class="post-read-time">${readTime} ${i18n.minRead}</span>
             </div>
 
             ${content}
@@ -224,7 +225,7 @@ function getPostTemplate(frontmatter, content, postOutputPath) {
 
     <footer class="footer">
         <div class="container">
-            <p class="footer-text">&copy; 2025 Luciano Vernaschi.</p>
+            <p class="footer-text">${i18n.footer}</p>
         </div>
     </footer>
 </body>
@@ -311,6 +312,7 @@ function generateHomepagePostBlocks(posts) {
     const langConfig = config.languages[language] || config.languages.en;
     const colorName = langConfig.color;
     const languageName = langConfig.name;
+    const i18n = config.i18n[language] || config.i18n.en;
 
     // Get the relative path from index.html to the post
     const postUrl = config.getPostPathFromHome(post.outputPath);
@@ -329,8 +331,8 @@ function generateHomepagePostBlocks(posts) {
                         </a>
                         <p class="post-excerpt">${description}</p>
                         <div class="post-footer">
-                            <a href="${postUrl}" class="post-link ${colorName}-link">Read More</a>
-                            <span class="post-read-time">${readTime} min read</span>
+                            <a href="${postUrl}" class="post-link ${colorName}-link">${i18n.readMore}</a>
+                            <span class="post-read-time">${readTime} ${i18n.minRead}</span>
                         </div>
                     </article>`;
   };
@@ -338,7 +340,7 @@ function generateHomepagePostBlocks(posts) {
   let output = '';
 
   if (recentPosts.length > 0) {
-    output += '                    <h3 class="posts-section-title">Recent Posts</h3>\n';
+    output += '                    <h3 class="posts-section-title" data-section="recentPosts">Recent Posts</h3>\n';
     output += recentPosts.map(generatePostCard).join('\n\n');
   }
 
@@ -346,7 +348,7 @@ function generateHomepagePostBlocks(posts) {
     if (recentPosts.length > 0) {
       output += '\n\n';
     }
-    output += '                    <h3 class="posts-section-title">Archive</h3>\n';
+    output += '                    <h3 class="posts-section-title" data-section="archive">Archive</h3>\n';
     output += olderPosts.map(generatePostCard).join('\n\n');
   }
 
