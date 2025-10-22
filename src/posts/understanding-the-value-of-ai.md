@@ -1,14 +1,12 @@
 ---
 title: "Understanding the Value of AI"
 description: "Does AI actually work, or should we be asking a different question?"
-category: "opinioni"
+category: "opinions"
 date: "October 9, 2025"
 readTime: 8
 slug: "understanding-the-value-of-ai"
 language: "en"
 ---
-
-# Understanding the Value of AI
 
 People often talk about artificial intelligence as a revolution capable of changing society. Some see it as a once-in-a-generation breakthrough, while others dismiss it as an overhyped fad and point to its frequent mistakes.
 
@@ -16,7 +14,7 @@ Lately I’ve been experimenting with **small language models (LLMs)** that can 
 
 Here’s a short screencast of the experiment:
 
-<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls style="max-width: 360px; width: 100%; height: auto; display: block; margin: 0 auto;"></video>
 
 In the video I ask the model: *“When was Italy born?”*  
 The answer is wrong, yes — but what’s interesting is that the model **understands the question**, recognizes that it’s about history, and connects coherent concepts. That’s not trivial for a system that runs entirely in your pocket.

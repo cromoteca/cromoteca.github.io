@@ -1,14 +1,12 @@
 ---
 title: "Comprendre la valeur de l'IA"
 description: "L'IA fonctionne-t-elle vraiment ou devrions-nous poser une autre question ?"
-category: "opinioni"
+category: "avis"
 date: "October 9, 2025"
 readTime: 8
 slug: "comprendre-la-valeur-de-l-ia"
 language: "fr"
 ---
-
-# Comprendre la valeur de l'IA
 
 On parle souvent de l’intelligence artificielle comme d’une révolution capable de changer la société. Certains y voient un tournant historique, tandis que d’autres la considèrent comme une mode exagérée et citent ses erreurs fréquentes.
 
@@ -16,7 +14,7 @@ Ces derniers temps, j’ai voulu expérimenter avec de **petits modèles de lang
 
 Voici un court screencast de l’expérience :
 
-<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls style="max-width: 360px; width: 100%; height: auto; display: block; margin: 0 auto;"></video>
 
 Dans la vidéo, je demande au modèle : *« Quand l’Italie est-elle née ? »*  
 La réponse est fausse, oui — mais ce qui est intéressant, c’est que le modèle **comprend la question**, reconnaît qu’il s’agit d’un sujet historique et relie des concepts cohérents. Ce n’est pas rien pour un système qui fonctionne entièrement dans une poche.

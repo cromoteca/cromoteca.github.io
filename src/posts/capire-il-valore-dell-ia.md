@@ -8,15 +8,13 @@ slug: "capire-il-valore-dell-ia"
 language: "it"
 ---
 
-# Capire il valore dell'IA
-
 Si parla spesso di intelligenza artificiale come di una rivoluzione capace di cambiare la società. C’è chi la vede come una svolta epocale e chi, al contrario, la considera una moda esagerata e cita i frequenti errori.
 
 Negli ultimi tempi ho voluto sperimentare con i **piccoli modelli linguistici (LLM)**, quelli che possono funzionare **direttamente sul dispositivo**. Ho realizzato un’app Android in **WebAssembly** che esegue un modello locale, e l’ho provata su un telefono di cinque anni fa. Quando l’ho comprato serviva solo per chiamare e installare app. Oggi riesce a rispondere alle mie domande.
 
 Ecco un breve screencast dell’esperimento:
 
-<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls style="max-width: 360px; width: 100%; height: auto; display: block; margin: 0 auto;"></video>
 
 Nel video chiedo al modello: *«Quando è nata l’Italia?»*  
 La risposta è sbagliata, sì — ma la cosa interessante è che il modello **capisce la domanda**, riconosce che è di tipo storico e collega concetti coerenti. Non è poco, per un sistema che gira interamente in tasca.
