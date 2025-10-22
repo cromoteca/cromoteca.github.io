@@ -16,7 +16,7 @@ Negli ultimi tempi ho voluto sperimentare con i **piccoli modelli linguistici (L
 
 Ecco un breve screencast dell’esperimento:
 
-<video src="screencast.mp4" poster="screencast-llm-demo.jpg" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
 
 Nel video chiedo al modello: *«Quando è nata l’Italia?»*  
 La risposta è sbagliata, sì — ma la cosa interessante è che il modello **capisce la domanda**, riconosce che è di tipo storico e collega concetti coerenti. Non è poco, per un sistema che gira interamente in tasca.

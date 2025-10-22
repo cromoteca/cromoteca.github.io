@@ -16,7 +16,7 @@ Ces derniers temps, j’ai voulu expérimenter avec de **petits modèles de lang
 
 Voici un court screencast de l’expérience :
 
-<video src="screencast.mp4" poster="screencast-llm-demo.jpg" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
 
 Dans la vidéo, je demande au modèle : *« Quand l’Italie est-elle née ? »*  
 La réponse est fausse, oui — mais ce qui est intéressant, c’est que le modèle **comprend la question**, reconnaît qu’il s’agit d’un sujet historique et relie des concepts cohérents. Ce n’est pas rien pour un système qui fonctionne entièrement dans une poche.

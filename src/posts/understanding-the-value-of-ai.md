@@ -16,7 +16,7 @@ Lately I’ve been experimenting with **small language models (LLMs)** that can 
 
 Here’s a short screencast of the experiment:
 
-<video src="screencast.mp4" poster="screencast-llm-demo.jpg" controls></video>
+<video src="/videos/llm-wasm.mp4" poster="/videos/llm-wasm.png" controls></video>
 
 In the video I ask the model: *“When was Italy born?”*  
 The answer is wrong, yes — but what’s interesting is that the model **understands the question**, recognizes that it’s about history, and connects coherent concepts. That’s not trivial for a system that runs entirely in your pocket.
